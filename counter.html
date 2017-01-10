@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Basic Counter</title>
+    <script src="https://unpkg.com/react@latest/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      var Counter = React.createClass({
+        getInitialState() {
+          return {
+            count: 0
+          };
+        },
+        increment() {
+          this.setState({
+            count : this.state.count + 1
+          });
+        },
+        decrement() {
+          (this.state.count >0 ) && this.setState({
+            count: this.state.count - 1
+          });
+        },
+        render() {
+          var style = {color : (this.state.count >= 10) ? "red" : "black" }
+          return (
+            <center>
+              <h1>React Counter</h1>
+              <h2 style={style}>{this.state.count}</h2>
+              <button onClick={this.increment}>+</button>
+              <button onClick={this.decrement}>-</button>
+            </center>
+          );
+        }
+      });
+
+      ReactDOM.render(
+        <Counter />,
+        document.getElementById('root')
+      );
+
+    </script>
+  </body>
+</html>
