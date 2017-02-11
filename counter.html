@@ -27,7 +27,10 @@
           });
         },
         render() {
-          var style = {color : (this.state.count >= 10) ? "red" : "black" }
+          var style = {
+            fontSize: this.state.count >= 5 ? "2em": "1em",
+            color: this.state.count >= 10 ? "blue": "black"
+          }
           return (
             <center>
               <h1>React Counter</h1>
